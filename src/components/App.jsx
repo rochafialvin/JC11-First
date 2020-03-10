@@ -27,8 +27,7 @@ class App extends React.Component {
             }
             // respon dari request ('res') disimpan ke 'state'
         ).then((res) => {
-            console.log(res.data.results)
-            // this.setState({ images: res.data.results})
+            this.setState({ images: res.data.results})
         })
     }
     
@@ -38,8 +37,8 @@ class App extends React.Component {
             <div className='container'>
                 <h1 className='text-center my-3' >REACT 101</h1>
                 {/* asd -> property */}
-                <SearchBar qwerty={this.onSearch} />
-                <ImageList/>
+                <SearchBar onSearch={this.onSearch} />
+                <ImageList images={this.state.images}/>
             </div>
         )
     }
