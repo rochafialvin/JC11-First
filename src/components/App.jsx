@@ -11,6 +11,26 @@ class App extends React.Component {
         images: []
     }
 
+    componentDidMount(){
+        // Request image
+        axios.get(
+            'https://api.unsplash.com/search/photos',
+            {
+                headers: {
+                    Authorization: 'Client-ID A-c3T4tZE8CTC4eJ0liT89vki1JMBaUmHO2zJ9RJ-OY'
+                },
+
+                params: {
+                    query: 'stars',
+                    per_page: 15
+                }
+            }
+            // respon dari request ('res') disimpan ke 'state'
+        ).then((res) => {
+            this.setState({ images: res.data.results})
+        })
+    }
+
     onSearch = (keyword) => {
         // Request image
         axios.get(

@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 let ImageList = (props) => {
 
     // props.images = [{ alt_description, description, urls }, { alt_description, description, urls }]
@@ -11,6 +13,7 @@ let ImageList = (props) => {
                 src={image.urls.regular}
                 key={image.id}
                 alt={image.alt_description}
+                title={image.alt_description}
             />
         )
     })
